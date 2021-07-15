@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions',
 
     'mainapp',
     'authapp',
@@ -49,6 +48,7 @@ INSTALLED_APPS = [
 
     'debug_toolbar',
     'template_profiler_panel',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
