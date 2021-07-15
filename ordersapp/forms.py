@@ -1,5 +1,6 @@
 from django import forms
 from .models import Order, OrderItem
+from mainapp.models import Product
 
 class OrderEditForm(forms.ModelForm):
     class Meta:
@@ -23,4 +24,4 @@ class OrderItemEditForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
-            field.help_text = ''
+        self.fields['product'].queryset = Product.objects.all().select_related()
