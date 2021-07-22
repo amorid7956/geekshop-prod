@@ -6,7 +6,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         products_list = Product.objects.filter(
-            Q(productcategory__name='Ξασβό') |  Q(productcategory__name='ΐκρερρσΰπϋ')
+            Q(productcategory__name='ΠΠ±ΡƒΠ²Ρ') |  Q(productcategory__name='ΠΠΊΡΠµΡΡΡƒΠ°Ρ€Ρ‹')
         )
 
         print(products_list, sep='\n')
