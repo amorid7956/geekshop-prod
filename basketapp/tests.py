@@ -13,18 +13,17 @@ class BasketTestCase(TestCase):
         category = ProductCategory.objects.create(name="стулья")
         self.product_1 = Product.objects.create(name="стул 1",
                                           category=category,
-                                          price = 1999.5,
+                                          price = 1999,
                                           quantity=150)
 
         self.product_2 = Product.objects.create(name="стул 2",
                                           category=category,
-                                          price=2998.1,
-                                          quantity=125,
-                                          is_active=False)
+                                          price=2998,
+                                          quantity=125)
 
         self.product_3 = Product.objects.create(name="стул 3",
                                           category=category,
-                                          price=998.1,
+                                          price=998,
                                           quantity=115)
 
         self.basket_1 = Basket.objects.create(user=self.user,
