@@ -10,6 +10,8 @@ from django.conf import settings
 from .models import User
 
 def login(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
