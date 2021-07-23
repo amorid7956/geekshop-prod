@@ -43,3 +43,17 @@ class UserManagementTestCase(TestCase):
 
         new_user.refresh_from_db()
         self.assertTrue(new_user.is_active)
+
+    def test_user_logout(self):
+        self.client.login(username=self.username, password=self.password)
+
+        response = self.client.get('/users/login/')
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.context['user'].is_anonymous)
+
+        response = self.client.get('/users/logout/')
+        self.assertEqual(response.status_code, 302)
+
+        response = self.client.get('/main/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context['user'].is_anonymous)
