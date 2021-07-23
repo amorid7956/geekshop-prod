@@ -48,12 +48,12 @@ class UserManagementTestCase(TestCase):
         self.client.login(username=self.username, password=self.password)
 
         response = self.client.get('/users/login/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, self.status_code_redirect)
         self.assertFalse(response.context['user'].is_anonymous)
 
         response = self.client.get('/users/logout/')
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, self.status_code_redirect)
 
         response = self.client.get('/main/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, self.status_code_success)
         self.assertTrue(response.context['user'].is_anonymous)
