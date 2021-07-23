@@ -48,6 +48,7 @@ class UserManagementTestCase(TestCase):
         self.client.login(username=self.username, password=self.password)
 
         response = self.client.get('/users/login/')
+        print(response)
         self.assertEqual(response.status_code, self.status_code_redirect)
         self.assertFalse(response.context['user'].is_anonymous)
 
