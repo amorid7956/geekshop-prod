@@ -20,5 +20,3 @@ class TestMainSmokeTest(TestCase):
     #         self.assertEqual(response.status_code, self.status_code_success)
 
 
-
-# Create your tests here.
